@@ -1,11 +1,11 @@
 const pg = require("pg");
 
 const client = new pg.Client({
-  user: "ctnuuhzxxwhwsi",
-  password: "6b99459ba180ac20eba82a79c9ddbd81e59b9e3a929dfde8dcbfded506130e51",
-  database: "d45flg8j9d0dui",
+  user: "aeunenyrcobiwo",
+  password: "3ff7cf3833afa86838e9c9e7abe1053d8674f7e2702b983fddb322a608530a64",
+  database: "dacbq559bp3ulv",
   // port: 5432,
-  host: "ec2-54-225-18-166.compute-1.amazonaws.com",
+  host: "ec2-34-194-73-236.compute-1.amazonaws.com",
   ssl: {rejectUnauthorized: false}
 });
 
