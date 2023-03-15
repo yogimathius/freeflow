@@ -1,0 +1,155 @@
+@tailwind base;
+@layer base {
+  Link {
+    @apply text-blue-500;
+  }
+  html {
+    @apply bg-gray-50;
+  }
+  ::-webkit-input-placeholder {
+    @apply text-center flex justify-center items-center;
+  }
+
+  :-moz-placeholder {
+    @apply text-center flex justify-center items-center;
+  }
+
+  ::-moz-placeholder {
+    @apply text-center flex justify-center items-center;
+  }
+
+  :-ms-input-placeholder {
+    @apply text-center flex justify-center items-center;
+  }
+
+  /* .last-child-sticky:last-child {
+    position: sticky;
+    bottom: 0;
+  } */
+}
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .btn {
+    @apply px-2 tracking-widest rounded-lg border-1 cursor-pointer text-center no-underline object-contain;
+  }
+
+  /* .btn i {
+		@apply text-blue-500;
+	} */
+
+  .btn:focus {
+    @apply outline-none shadow-none;
+  }
+
+  .btn:active {
+    @apply bg-green-500;
+  }
+
+  .btn[disabled],
+  .btn.disabled {
+    @apply cursor-default;
+  }
+
+  .btn-primary,
+  .btn-primary:visited {
+    @apply bg-green-500 text-white border-green-500;
+  }
+
+  .btn-primary:hover,
+  .btn-primary:visited:hover {
+    @apply bg-white border-green-500 text-green-500;
+  }
+
+  .btn-primary:active {
+    @apply bg-green-500 border-green-500 opacity-70;
+  }
+
+  .btn-secondary,
+  .btn-secondary:visited {
+    @apply bg-none border-green-500 text-green-500;
+  }
+
+  .btn-secondary:hover,
+  .btn-secondary:visited:hover {
+    @apply bg-none bg-green-500 text-white;
+  }
+
+  .btn-secondary:active {
+    @apply bg-green-500 opacity-70;
+  }
+
+  .btn-tertiary,
+  .btn-tertiary:visited {
+    @apply border-blue-500 text-blue-500;
+  }
+
+  .btn-tertiary:hover,
+  .btn-tertiary:visited:hover,
+  .btn-tertiary:focus {
+    @apply bg-blue-200;
+  }
+  .btn-warning,
+  .btn-warning:visited {
+    @apply border-red-500 text-red-500;
+  }
+  .btn-warning:hover,
+  .btn-warning:visited:hover,
+  .btn-warning:focus {
+    @apply bg-red-200;
+  }
+
+  /* .submenu {
+    height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-out;
+  }
+
+  .submenu.show {
+    height: 100%;
+  } */
+  /* .CommentsOpen {
+    animation: openComments 0.8s ease-out forwards;
+  }
+
+  .CommentsClosed {
+    animation: closeComments 0.8s ease-out forwards;
+  }
+
+  @keyframes openComments {
+    0% {
+      height: 0;
+    }
+    100% {
+      height: 100%;
+    }
+  }
+
+  @keyframes closeComments {
+    0% {
+      height: 90%;
+    }
+    100% {
+      height: 0;
+    }
+  } */
+
+  .alert-enter {
+    height: 0;
+  }
+
+  .alert-enter-active {
+    height: 100%;
+    transition: height 800ms;
+  }
+
+  .alert-exit {
+    height: 100%;
+  }
+
+  .alert-exit-active {
+    height: 0;
+    transition: height 800ms;
+  }
+}

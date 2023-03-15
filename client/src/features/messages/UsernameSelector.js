@@ -1,0 +1,64 @@
+/* eslint-disable no-tabs */
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useHistory, withRouter } from 'react-router-dom'
+import Select from 'react-select'
+
+import { selectAllUsers } from '../../reducers/usersSlice'
+import { setSelectedUser } from '../../reducers/selectedUserSlice'
+import { addUserConversation } from '../../reducers/userConversationsSlice'
+
+const UsernameSelector = ({ sortedMessages, userId, messagers, currentThread, setCurrentThread, url, path }) => {
+  const history = useHistory()
+  const dispatch = useDispatch()
+  const users = useSelector(selectAllUsers)
+
+  const usernameOptions = []
+  const usernames = users.forEach((user, index) => {
+    const username = user.first_name + ' ' + user.last_name
+    const userIdInList = user.id
+    const usernameOptionObject = { value: { username, userIdInList }, label: username }
+    if (userIdInList !== userId) {
+      usernameOptions.push(usernameOptionObject)
+    }
+  })
+
+  const HandleChange = (selectedUser) => {
+    const userAlreadyInMessages = messagers.find(messager => messager.name === selectedUser.value.username)
+
+    if (userAlreadyInMessages === undefined) {
+      const username = selectedUser.value.username
+      dispatch(addUserConversation({ name: username, userId: selectedUser.value.userIdInList }))
+      setCurrentThread(username)
+      history.push(`${url}/${username}`)
+    }
+
+    if (userAlreadyInMessages !== undefined) {
+      dispatch(setSelectedUser({ selectedUser }))
+      const username = userAlreadyInMessages.name
+      setCurrentThread(username)
+      history.push(`${url}/${username}`)
+    }
+  }
+
+  return (
+	<div className="w-full">
+    <div className="col-start-1 col-span-1">
+      <label
+        htmlFor="skills"> </label>
+      <Select
+        onChange={(e) => HandleChange(e)}
+        placeholder="Compose Message..."
+        value={usernames || null}
+        defaultValue="Compose Message..."
+        name="usernames"
+        options={usernameOptions}
+        className="basic-multi-select"
+        classNamePrefix="select"
+      />
+    </div>
+	</div>
+  )
+}
+
+export default withRouter(UsernameSelector)
