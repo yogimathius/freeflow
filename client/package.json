@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "proxy": "https://freeflow-api-production.up.railway.app/",
+  "engines": {
+    "node": ">=14"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
