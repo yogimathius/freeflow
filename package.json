@@ -12,7 +12,7 @@
   "scripts": {
     "start": "nodemon ./src/index.js",
     "reset": "psql -U sprinter -d sprint < ./src/db/schema/create.sql && psql -U sprinter -d sprint < ./src/db/schema/development.sql",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "heroku-postbuild": "cd src/client && npm install && npm run build"
   },
   "dependencies": {
     "axios": "^0.20.0",
