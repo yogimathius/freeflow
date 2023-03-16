@@ -109,10 +109,6 @@ module.exports = function application(
   app.use("/api", users(db));
   app.use("/api", register(db));
 
-  app.get("/", (req, res) => {
-    res.json({ message: "Welcome to freeflow application." });
-  });
-
   if (ENV === "development" || ENV === "test") {
     Promise.all([
       read(path.resolve(__dirname, `db/schema/create.sql`)),
