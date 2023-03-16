@@ -14,7 +14,15 @@ export const handleLogin = async (values, dispatch, history) => {
   const password = values.password
 
   dispatch(login(username, password))
-    .then(() => {
+    .then((userId) => {
+      dispatch(fetchSkills())
+      dispatch(fetchUserSkills())
+      dispatch(fetchPosts())
+      dispatch(fetchUsers())
+      dispatch(fetchUsers())
+      dispatch(fetchComments())
+      dispatch(fetchExperiences())
+      dispatch(fetchConversations(userId))
       history.push('/dashboard')
     })
     .catch((err) => {
