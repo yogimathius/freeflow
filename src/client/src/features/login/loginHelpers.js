@@ -23,6 +23,8 @@ export const handleLogin = async (values, dispatch, history) => {
       dispatch(fetchComments())
       dispatch(fetchExperiences())
       dispatch(fetchConversations(userId))
+    })
+    .then(() => {
       history.push('/dashboard')
     })
     .catch((err) => {

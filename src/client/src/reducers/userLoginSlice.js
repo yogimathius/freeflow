@@ -26,19 +26,19 @@ export default userLoginSlice.reducer
 // Actions
 const { loginSuccess, logoutSuccess } = userLoginSlice.actions
 
-export const login = (username, password) => async dispatch => {
+export const login = (username, password) => async (dispatch) => {
   try {
     const res = await axiosInstance.post(url, { username, password })
     if (res.status === 200) {
-      const userId = res.data
-      dispatch(loginSuccess(userId))
-      return userId
+      const user = res.data
+      dispatch(loginSuccess(user))
+      return user[0].id
     }
   } catch (e) {
     return console.error(e.message)
   }
 }
-export const logout = () => async dispatch => {
+export const logout = () => async (dispatch) => {
   try {
     // const res = await api.post('/api/auth/logout/')
     return dispatch(logoutSuccess())
